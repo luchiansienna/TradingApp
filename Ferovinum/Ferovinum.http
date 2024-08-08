@@ -1,0 +1,6 @@
+@Ferovinum_HostAddress = http://localhost:5246
+
+GET {{Ferovinum_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
