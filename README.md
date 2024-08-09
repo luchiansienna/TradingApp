@@ -129,11 +129,11 @@ Code First approach is in place with migrations located in **Ferovinum.Services*
 
 ## Data Models
 
-* Client - the clients fees
-* Product - the products prices
-* Transaction contains ClientId, ProductId, Quantity, Price, OrderType, Timestamp and 2 additional columns: 
-* StockLeft (used only for buy transactions)- for storing the stock available after sells, 
-* ParentBuyTransactionId (only used for sell transactions)- to link the sell transaction to the buy transaction which is drawing the items from 
+* **Client** - the clients fees
+* **Product** - the products prices
+* **Transaction** contains ClientId, ProductId, Quantity, Price, OrderType, Timestamp and 2 additional columns: 
+  **StockLeft** (used only for buy transactions)- for storing the stock available after sells, 
+  **ParentBuyTransactionId** (only used for sell transactions)- to link the sell transaction to the buy transaction which is drawing the items from 
 
 ## Projects
 
@@ -176,3 +176,4 @@ Also there are columns that can be indexed for faster browsing through the datab
 
 Regarding unit tests & e2e tests:
 There are a lot of other unit tests to be created, for different cases.
+
