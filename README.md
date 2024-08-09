@@ -152,10 +152,10 @@ So, for example if there are 3 buys of 1000 items at different times by Ferovinu
 As the way of taking the items is FIFO, the app does not allow The Client to make a first transaction of 1100 items,
 as the price would have a more complex calculation ( 1000 items at the interest rate of the first order with different timestamp, and 100 items of the second transaction of the 1000 items )
 
-Becuase it is not a high frequency transaction system this will not fail when making buy/sell transactions,
-but when a lot of transactions will happen at the same time with same client and same product this could cause the transaction mechanism to fail,
-by having racing conditions.
-it will need a locking mechanism in place, like Mutex or lock to block writing on that specific  clientId & productId writing and reading until
+Because it is not a high frequency transaction system this will not fail when making high frequency requests on buy/sell transactions endpoints,
+but when a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, or enter a long period of waiting.
+
+This will need a locking mechanism in place, like Mutex or lock to block writing on that specific  clientId & productId writing and reading until
 the current transaction finishes / getting saved in database.
 Effective concurrency control needs to be in place to ensure data integrity.
 We can achieve this also by Using EF Core pessimistic concurrency.
