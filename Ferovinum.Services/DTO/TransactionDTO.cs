@@ -3,7 +3,6 @@
 
     public class TransactionDTO
     {
-        public int? Id {  get; set; }
         public string ClientId { get;set; }
 
         public string ProductId { get; set; }
@@ -16,7 +15,5 @@
 
         public DateTime? Timestamp { get; set; }
 
-        //public int? StockLeft { get; set; }
-        //public int? ParentBuyTransactionId { get; set; }
     }
 }

@@ -94,15 +94,16 @@ namespace Ferovinum.Services
                 }
 
                 var startDate = theBuyTransactionWhereWeExtractFrom.Timestamp;
-                // There is a limitation here, the stock that is taken from is the first buy,
-                // but if the Ferovinum buys multiple times the same product from the same client,
-                // the sell orders should be separated, cause the price will be different as the products will be sold from 2 or more different buys
-                // ( with different time purchase ) so the sell price will be different 
+                
                 var monthsPassed = startDate.DifferenceInMonths(model.Timestamp);
 
 
                 model.Price = (float)Math.Round(product.Price * Math.Pow(1 + client.Fee / 12, monthsPassed + 1), 2);
                 model.ParentBuyTransactionId = theBuyTransactionWhereWeExtractFrom.Id;
+
+                // every time an user makes a sell, it substracts from the StockLeft of the last available buy transaction ( FIFO - first in / first out )
+                // There is a restriction here, you cannot make a sell that fetches stock from 2 different buy transactions
+                // That could be an improvement
                 theBuyTransactionWhereWeExtractFrom.StockLeft -= model.Quantity;
                 base.Save(theBuyTransactionWhereWeExtractFrom);
             }
