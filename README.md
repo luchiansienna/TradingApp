@@ -155,16 +155,17 @@ as the price would have a more complex calculation ( 1000 items at the interest 
 This can be achieved with a more complex algorithm in place.
 
 
-Right now, the app is not intended for high frequency transactions and this will not fail when making buy/sell transactions,
-but when a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, to enter a long period of waiting.
+Right now, the app is not intended for high frequency transactions. The app is not optimized for high frequency transactions.
+When a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, to enter a long period of waiting.
 
 There are multiple ways to scale this to high transactional system:
 Implement a distributed transaction system with a load balancer in place
 Asynchronous transactions can be implemented as well.
+Make use of SignalR or Pure Websockets to have a faster communication.
+Indexing the appropiate columns in database.
+Caching can be added as well.
 
 Also rollback strategy can be added in case an exception occurs in the buy/sell transaction, if other entities are in place.
-
-Caching can be added for the portfolio and other endpoints.
 
 To improve the database performance I could have created 2 tables: one for buys and one for sells.
 Now, for example the sells will never store data in StockLeft column and buys will never store information in ParentBuyTransactionId column, 
