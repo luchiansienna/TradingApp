@@ -155,21 +155,18 @@ as the price would have a more complex calculation ( 1000 items at the interest 
 Because it is not a high frequency transaction system this will not fail when making buy/sell transactions,
 but when a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, or enter a long period of waiting.
 
-This will need a locking mechanism in place, like Mutex or lock to block writing on that specific  clientId & productId writing and reading until
-the current transaction finishes / getting saved in database.
-Effective concurrency control needs to be in place to ensure data integrity.
-We can achieve this also by Using EF Core pessimistic concurrency.
+There are multiple ways to scale this to high transactional system:
+One way is to have multiple servers with a load balancer in place
+Asynchronous transactions can be implemented as well.
 
 Also rollback strategy can be added in case an exception occurs in the buy/sell transaction, if other entities are in place.
-
-Asynchronous transactions can be implemented as well.
 
 Caching can be added for the portfolio and other endpoints.
 
 To improve the database performance I could have created 2 tables: one for buys and one for sells.
 Now, for example the sells will never store data in StockLeft column and buys will never store information in ParentBuyTransactionId column, 
 but for the simplicity I used only one transactions sql table.
-
 Also there are columns that can be indexed for faster browsing through the database, but in our case is not necessary.
 
-There are a lot of other tests to be created, for different cases.
+Regarding unit tests & e2e tests:
+There are a lot of other unit tests to be created, for different cases.
