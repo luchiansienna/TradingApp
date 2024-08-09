@@ -107,6 +107,13 @@ Hitting GET on the following endpoints will return the created transactions with
 ]
   ```
 
+## Core modules of the app
+
+Ferovinum.Services\PortfolioService.cs - calculates the metrics
+
+Ferovinum.Services\TransactionsService.cs - creates a new buy / sell transaction
+
+Ferovinum.Services\BalanceService.cs - gets balances on productId and clientId
 
 ## Validations are in place for API requests
 
@@ -162,3 +169,5 @@ Caching can be added for the portfolio endpoint.
 To improve the database performance I could have created 2 tables: one for buys and one for sells.
 Now, for example the sells will never store data in StockLeft column and buys will never store information in ParentBuyTransactionId column, 
 but for the simplicity I used only one transactions sql table.
+
+Also there are columns that can be indexed for faster browsing through the database, but in our case is not necessary.

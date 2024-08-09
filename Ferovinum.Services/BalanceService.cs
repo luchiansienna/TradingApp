@@ -10,7 +10,6 @@ namespace Ferovinum.Services
 {
     public class BalanceService : BaseRepository<Transaction>, IBalanceService
     {
-
         protected readonly IMapper _mapper;
         public BalanceService(TransactionsContext context, IMapper mapper) : base(context) {
             _mapper = mapper;
