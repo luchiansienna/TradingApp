@@ -146,7 +146,7 @@ This is called Code First Approach.
 
 
 ## Possible improvements to the app
-At the moment you can only make a transaction that finishes or is part of the current batch.
+At the moment you can only make a sell transaction that finishes or takes part of the first in order available buy transaction stock.
 So, for example if there are 3 buys of 1000 items at different times by Ferovinum from the Client, the Client can, at the moment, make a 'sell' order from Ferovinum only less or the quantity left from the first transaction.
 
 As the way of taking the items is FIFO, the app does not allow The Client to make a first transaction of 1100 items,
