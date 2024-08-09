@@ -2,7 +2,6 @@
 # Trading app
 
 This is Web Api application that manages buy / sell transactions and displays some reports.
-The test description is located <a id='testdescription' href='https://github.com/luchiansienna/TradingApp/blob/main/TradingApp/description.pdf'>here</a>
 
 This app is developed using C# .NET Core framework.
 I have used CODE FIRST approach for the database with Entity Framework.
