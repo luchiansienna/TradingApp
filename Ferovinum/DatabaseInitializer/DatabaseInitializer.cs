@@ -24,7 +24,6 @@ namespace Ferovinum.DatabaseInitializer
                         context.Products.AddRange(productsToAdd);
                         context.SaveChanges();
                     }
-
                 }
 
                 if (!context.Clients.Any())

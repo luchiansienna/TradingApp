@@ -9,6 +9,5 @@ namespace Ferovinum.Domain
         public required string Id { get; set; }
 
         public required float Price { get; set; }
-
     }
 }

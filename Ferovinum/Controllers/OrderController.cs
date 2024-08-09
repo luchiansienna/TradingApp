@@ -24,7 +24,7 @@ namespace Ferovinum.Controllers
         /// Get a transaction by its ID
         /// </summary>
         /// <param name="id">The ID of the transaction</param>
-        [HttpGet("/order/{transactionId}", Name = nameof(GetTransactionById))]
+        [HttpGet("/{transactionId}", Name = nameof(GetTransactionById))]
         [ProducesResponseType(typeof(TransactionWithIdDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(void), StatusCodes.Status404NotFound)]
         public IActionResult GetTransactionById(int transactionId)
@@ -50,7 +50,5 @@ namespace Ferovinum.Controllers
 
             return CreatedAtAction(nameof(GetTransactionById), new { transactionId = createdTransaction.Id }, createdTransaction);
         }
-
-
     }
 }

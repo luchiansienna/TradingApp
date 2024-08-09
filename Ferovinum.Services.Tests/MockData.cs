@@ -17,7 +17,6 @@ namespace Ferovinum.Services.Tests
             Quantity = 15
         };
 
-
         public Transaction BuyTransaction = new()
         {
             ClientId = "C-1",

@@ -8,6 +8,5 @@ namespace Ferovinum.Services.Contracts
         public IEnumerable<BalanceDTO> GetBalanceByClientId(string clientId, DateTime? date);
 
         public IEnumerable<BalanceDTO> GetBalanceByProductId(string productId, DateTime? date);
-
     }
 }

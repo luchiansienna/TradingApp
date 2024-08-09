@@ -30,7 +30,6 @@ namespace Ferovinum.Services
             }
             return transactions;
         }
-
         public IQueryable<Transaction> GetAllBuyOrders(string? productId, string? clientId)
         {
             var transactions = _context.Transactions.Where(tr => tr.OrderType == OrderType.buy);
@@ -52,6 +51,7 @@ namespace Ferovinum.Services
         {
             return _mapper.Map<TransactionWithIdDTO>(base.Get(id));
         }
+
         public TransactionWithIdDTO Save(TransactionDTO dtoModel)
         {
             var model = _mapper.Map<Transaction>(dtoModel);
@@ -68,8 +68,8 @@ namespace Ferovinum.Services
             {
                 throw new DbEntityNotFoundException($"Client with id {model.ClientId} not found in the database.");
             }
-            // don't forget to uncomment this
-            //model.Timestamp = DateTime.Now;
+            
+            // Timestamp can be set automatically to Datetime.Now here, but for testing I kept it to be added from the API
             if (model.OrderType == OrderType.buy)
             {
                 model.Price = product.Price;
@@ -80,8 +80,6 @@ namespace Ferovinum.Services
                 var sumQuantitySold = GetSumSoldQuantity(model.ProductId, model.ClientId);
                 var transactions = GetAllBuyOrders(model.ProductId, model.ClientId).OrderBy(tr => tr.Timestamp);
                 Transaction theBuyTransactionWhereWeExtractFrom = transactions.FirstOrDefault(x => x.StockLeft != 0);
-                // don t forget to uncomment this
-                //model.Timestamp = Datetime.Now
 
                 if (theBuyTransactionWhereWeExtractFrom == null)
                 {
@@ -94,9 +92,7 @@ namespace Ferovinum.Services
                 }
 
                 var startDate = theBuyTransactionWhereWeExtractFrom.Timestamp;
-                
                 var monthsPassed = startDate.DifferenceInMonths(model.Timestamp);
-
 
                 model.Price = (float)Math.Round(product.Price * Math.Pow(1 + client.Fee / 12, monthsPassed + 1), 2);
                 model.ParentBuyTransactionId = theBuyTransactionWhereWeExtractFrom.Id;
@@ -114,13 +110,8 @@ namespace Ferovinum.Services
             => _mapper.Map<IEnumerable<Transaction>, IEnumerable<TransactionDTO>>(_dbSet
                 .Where(tr => tr.ClientId == clientId).ApplyDatesOptionally(from, to));
 
-
         public IEnumerable<TransactionDTO> GetByProductId(string productId, DateTime? from, DateTime? to)
             => _mapper.Map<IEnumerable<Transaction>, IEnumerable<TransactionDTO>>(_dbSet
                 .Where(tr => tr.ProductId == productId).ApplyDatesOptionally(from, to));
-
-
-
-
     }
 }

@@ -14,6 +14,5 @@
         public string OrderType { get; set; }
 
         public DateTime? Timestamp { get; set; }
-
     }
 }
