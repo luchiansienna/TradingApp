@@ -159,11 +159,12 @@ Right now, the app is not intended for high frequency transactions. The app is n
 When a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, to enter a long period of waiting.
 
 There are multiple ways to scale this to high transactional system:
-Implement a distributed transaction system with a load balancer in place
-Asynchronous transactions can be implemented as well.
-Make use of SignalR or Pure Websockets to have a faster communication.
-Indexing the appropiate columns in database.
-Caching can be added as well.
+* Implement a distributed transaction system with a load balancer in place
+* Asynchronous transactions can be implemented as well.
+* Optimise database EF Core queries or use / call T-SQL Queries / Stored Procedures.
+* Make use of SignalR or Pure Websockets to have a faster communication.
+* Indexing the appropiate columns in database.
+* Caching can be added as well.
 
 Also rollback strategy can be added in case an exception occurs in the buy/sell transaction, if other entities are in place.
 
