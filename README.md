@@ -147,13 +147,16 @@ This is called Code First Approach.
 
 ## Possible improvements to the app
 At the moment you can only make a sell transaction that finishes or takes part of the first in order available buy transaction stock.
-So, for example if there are 3 buys of 1000 items at different times by Ferovinum from the Client, the Client can, at the moment, make a 'sell' order from Ferovinum only less or the quantity left from the first transaction.
+So, for example if there are 3 buy transactions of 1000 items at different times by Ferovinum from the Client, the Client can, at the moment, make a 'sell' order from Ferovinum only less or the quantity left from the first transaction.
 
 As the way of taking the items is FIFO, the app does not allow The Client to make a first transaction of 1100 items,
 as the price would have a more complex calculation ( 1000 items at the interest rate of the first order with different timestamp, and 100 items of the second transaction of the 1000 items )
 
-Because it is not a high frequency transaction system this will not fail when making buy/sell transactions,
-but when a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, or enter a long period of waiting.
+This can be achieved with a more complex algorithm in place.
+
+
+Right now, the app is not intended for high frequency transactions and this will not fail when making buy/sell transactions,
+but when a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, to enter a long period of waiting.
 
 There are multiple ways to scale this to high transactional system:
 Implement a distributed transaction system with a load balancer in place
