@@ -156,7 +156,7 @@ Because it is not a high frequency transaction system this will not fail when ma
 but when a lot of transactions will happen at the same time this could cause the transaction mechanism to fail, or enter a long period of waiting.
 
 There are multiple ways to scale this to high transactional system:
-One way is to have multiple servers with a load balancer in place
+Implement a distributed transaction system with a load balancer in place
 Asynchronous transactions can be implemented as well.
 
 Also rollback strategy can be added in case an exception occurs in the buy/sell transaction, if other entities are in place.
