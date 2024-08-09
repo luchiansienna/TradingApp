@@ -106,11 +106,11 @@ Hitting GET on the following endpoints will return the created transactions with
 ]
   ```
 
-## Core modules of the app
+## Main services of the app
 
-Ferovinum.Services\PortfolioService.cs - calculates the metrics
+Ferovinum.Services\PortfolioService.cs - calculates metrics
 
-Ferovinum.Services\TransactionsService.cs - creates a new buy / sell transaction
+Ferovinum.Services\TransactionsService.cs - creates a new buy / sell transaction & gets list of transactions based on productId and clientId
 
 Ferovinum.Services\BalanceService.cs - gets balances on productId and clientId
 
