@@ -177,3 +177,10 @@ Also there are columns that can be indexed for faster browsing through the datab
 Regarding unit tests & e2e tests:
 There are a lot of other unit tests to be created, for different cases.
 
+I have not managed to successfully come up with the weightedAverageRealisedAnnualisedYieldSum formula and to match what is the example returning.
+The formula that I know for "Annualised yield of fees
+weighted on notional amount of sold stock" is  
+sum of all sold transactions ( notional amount ) of Quantity sold * unit product Price * ((1 + client.Fee / 12 ) ^ 12 - 1)
+divided by sum of all sold notional amount ( for that client)
+
+Also, for me the “lifeToDateProductNotional”: is returning 65990 ( with the test exercise example) ,not 659900 like mentioned in the exercise example.
