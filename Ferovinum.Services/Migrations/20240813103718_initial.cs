@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Ferovinum.Services.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,6 +54,21 @@ namespace Ferovinum.Services.Migrations
                 {
                     table.PrimaryKey("PK_Transactions", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_ClientId",
+                table: "Transactions",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_ClientId_ProductId",
+                table: "Transactions",
+                columns: new[] { "ClientId", "ProductId" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_ProductId",
+                table: "Transactions",
+                column: "ProductId");
         }
 
         /// <inheritdoc />

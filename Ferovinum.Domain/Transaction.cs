@@ -1,7 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ferovinum.Domain
 {
+    [Index(nameof(ClientId))]
+    [Index(nameof(ProductId))]
+    [Index(nameof(ClientId), nameof(ProductId))]
+
     public class Transaction : BaseModel
     {
         [MaxLength(10)]

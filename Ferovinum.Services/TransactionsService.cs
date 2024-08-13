@@ -20,26 +20,26 @@ namespace Ferovinum.Services
         public IQueryable<Transaction> GetAllSellOrders(string? productId, string? clientId)
         {
             var transactions = _context.Transactions.Where(tr => tr.OrderType == OrderType.sell);
-            if (productId != null)
-            {
-                transactions = transactions.Where(tr => tr.ProductId == productId);
-            }
             if (clientId != null)
             {
                 transactions = transactions.Where(tr => tr.ClientId == clientId);
+            }
+            if (productId != null)
+            {
+                transactions = transactions.Where(tr => tr.ProductId == productId);
             }
             return transactions;
         }
         public IQueryable<Transaction> GetAllBuyOrders(string? productId, string? clientId)
         {
             var transactions = _context.Transactions.Where(tr => tr.OrderType == OrderType.buy);
-            if (productId != null)
-            {
-                transactions = transactions.Where(tr => tr.ProductId == productId);
-            }
             if (clientId != null)
             {
                 transactions = transactions.Where(tr => tr.ClientId == clientId);
+            }
+            if (productId != null)
+            {
+                transactions = transactions.Where(tr => tr.ProductId == productId);
             }
             return transactions;
         }

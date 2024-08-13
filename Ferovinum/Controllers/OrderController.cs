@@ -1,10 +1,7 @@
-using AutoMapper;
 using Ferovinum.Domain;
 using Ferovinum.Services.DTO;
 using Ferovinum.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Ferovinum.Controllers
 {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferovinum.Services.Migrations
 {
     [DbContext(typeof(TransactionsContext))]
-    [Migration("20240808185422_Initial")]
-    partial class Initial
+    [Migration("20240813103718_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,6 +90,12 @@ namespace Ferovinum.Services.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("ClientId", "ProductId");
 
                     b.ToTable("Transactions");
                 });

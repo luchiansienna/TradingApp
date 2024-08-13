@@ -88,6 +88,12 @@ namespace Ferovinum.Services.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("ClientId", "ProductId");
+
                     b.ToTable("Transactions");
                 });
 #pragma warning restore 612, 618
