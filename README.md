@@ -29,7 +29,8 @@ Start by creating a new transaction, by hitting POST on the /order API Endpoint 
     "clientId": "C-1", 
     "productId": "P-1", 
     "orderType": "buy",
-    "quantity": 1000
+    "quantity": 1000,
+    "timestamp": "2020-01-01T10:00:00"
 }
   ```
 
@@ -42,7 +43,8 @@ You can also make a sell transaction posting this to the order endpoint
     "clientId": "C-1", 
     "productId": "P-1", 
     "ordertype": "sell",
-    "quantity": 500
+    "quantity": 500,
+    "timestamp": "2020-02-01T10:00:00"
 }
   ```
   
@@ -146,7 +148,7 @@ In this project, I wrote the model classes first and EF Core will create the dat
 This is called Code First Approach.
 
 
-## Possible improvements to the app
+## Possible improvements to the app / Limitations / Trade-offs
 At the moment you can only make a sell transaction that finishes or takes part of the first in order available buy transaction stock.
 So, for example if there are 3 buy transactions of 1000 items at different times by Ferovinum from the Client, the Client can, at the moment, make a 'sell' order from Ferovinum only less or the quantity left from the first transaction.
 
@@ -176,6 +178,8 @@ Also there are columns that can be indexed for faster browsing through the datab
 
 Regarding unit tests & e2e tests:
 There are a lot of other unit tests to be created, for different cases.
+
+An authentication and authorization ( OpenID Connect & OAuth2 ) system like Azure B2C with MSAL .NET would be necessary here to secure these RESTFUL APIs.
 
 I have not managed to successfully come up with the weightedAverageRealisedAnnualisedYieldSum formula and to match what is the example returning.
 The formula that I know for "Annualised yield of fees
