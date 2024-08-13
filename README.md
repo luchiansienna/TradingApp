@@ -152,7 +152,8 @@ There are 3 indexes on the Transactions SQL Table that help much improving the q
 
 * **1 - ProductId** - individual index
 * **2 - ClientId** - individual index optimised
-* **3 - ProductId with ClientId** - composite index - that helps when searching on both field
+* **3 - ProductId with ClientId** - composite index - that helps when searching on both field.
+
 This enlarges the sql table ( making it bigger in dimension/ data stored) and also makes the adding process take longer but much improves the query time when large datasets in place.
 
 ## Possible improvements to the app / Limitations / Trade-offs
