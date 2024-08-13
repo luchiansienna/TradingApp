@@ -29,7 +29,8 @@ Start by creating a new transaction, by hitting POST on the /order API Endpoint 
     "clientId": "C-1", 
     "productId": "P-1", 
     "orderType": "buy",
-    "quantity": 1000
+    "quantity": 1000,
+    "timestamp": "2020-01-01T10:00:00"
 }
   ```
 
@@ -42,7 +43,8 @@ You can also make a sell transaction posting this to the order endpoint
     "clientId": "C-1", 
     "productId": "P-1", 
     "ordertype": "sell",
-    "quantity": 500
+    "quantity": 500,
+    "timestamp": "2020-02-01T10:00:00"
 }
   ```
   
