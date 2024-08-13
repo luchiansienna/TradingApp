@@ -150,8 +150,8 @@ This is called Code First Approach.
 ## Database optimisation
 There are 3 indexes on the Transactions SQL Table that help much improving the query time:
 
-* **1 - ProductId** - individual index
-* **2 - ClientId** - individual index optimised
+* **1 - ProductId** - single index - improved performance when searching by ProductId
+* **2 - ClientId** - single index - improved performance when searching by ClientId
 * **3 - ProductId with ClientId** - composite index - that helps when searching on both field.
 
 This enlarges the sql table ( making it bigger in dimension/ data stored) and also makes the adding process take longer but much improves the query time when large datasets in place.
