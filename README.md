@@ -146,7 +146,7 @@ In this project, I wrote the model classes first and EF Core will create the dat
 This is called Code First Approach.
 
 
-## Possible improvements to the app
+## Possible improvements to the app / Limitations / Trade-offs
 At the moment you can only make a sell transaction that finishes or takes part of the first in order available buy transaction stock.
 So, for example if there are 3 buy transactions of 1000 items at different times by Ferovinum from the Client, the Client can, at the moment, make a 'sell' order from Ferovinum only less or the quantity left from the first transaction.
 
