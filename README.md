@@ -177,7 +177,7 @@ Also there are columns that can be indexed for faster browsing through the datab
 Regarding unit tests & e2e tests:
 There are a lot of other unit tests to be created, for different cases.
 
-Also, an authentication and authorization ( OpenID Connect & OAuth2 ) system like Azure B2C with MSAL .NET can be set up in place here to secure these RESTFUL APIs.
+An authentication and authorization ( OpenID Connect & OAuth2 ) system like Azure B2C with MSAL .NET would be necessary here to secure these RESTFUL APIs.
 
 I have not managed to successfully come up with the weightedAverageRealisedAnnualisedYieldSum formula and to match what is the example returning.
 The formula that I know for "Annualised yield of fees
