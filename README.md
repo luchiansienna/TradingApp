@@ -147,6 +147,13 @@ Code First approach is in place with migrations located in **Ferovinum.Services*
 In this project, I wrote the model classes first and EF Core will create the database. 
 This is called Code First Approach.
 
+## Database optimisation
+There are 3 indexes on the Transactions SQL Table that help much improving the query time:
+
+* **1 - ProductId** - individual index
+* **2 - ClientId** - individual index optimised
+* **3 - ProductId with ClientId** - composite index - that helps when searching on both field
+This enlarges the sql table ( making it bigger in dimension/ data stored) and also makes the adding process take longer but much improves the query time when large datasets in place.
 
 ## Possible improvements to the app / Limitations / Trade-offs
 At the moment you can only make a sell transaction that finishes or takes part of the first in order available buy transaction stock.
